@@ -22,13 +22,13 @@ import kotlinx.android.synthetic.main.fragment_message.*
 /*
     消息列表Fragment
  */
-class MessageFragment:BaseMvpFragment<MessagePresenter>(),MessageView {
+class MessageFragment : BaseMvpFragment<MessagePresenter>(), MessageView {
 
-    private lateinit var mAdapter:MessageAdapter
+    private lateinit var mAdapter: MessageAdapter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater?.inflate(R.layout.fragment_message,container,false)
+        return inflater?.inflate(R.layout.fragment_message, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -71,10 +71,10 @@ class MessageFragment:BaseMvpFragment<MessagePresenter>(),MessageView {
         获取消息后回调
      */
     override fun onGetMessageResult(result: MutableList<Message>?) {
-        if (result != null && result.size > 0){
+        if (result != null && result.size > 0) {
             mAdapter.setData(result)
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
-        }else{
+        } else {
             //数据为空
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
         }
@@ -85,7 +85,7 @@ class MessageFragment:BaseMvpFragment<MessagePresenter>(),MessageView {
      */
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)
-        if (!hidden){
+        if (!hidden) {
             Bus.send(MessageBadgeEvent(false))
         }
     }

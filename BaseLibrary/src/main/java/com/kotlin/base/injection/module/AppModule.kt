@@ -10,11 +10,11 @@ import javax.inject.Singleton
     Application级别Module
  */
 @Module
-class AppModule(private val context:BaseApplication) {
+class AppModule(private val context: BaseApplication) {
 
     @Singleton
     @Provides
-    fun provideContext():Context{
+    fun provideContext(): Context {
         return this.context
     }
 }

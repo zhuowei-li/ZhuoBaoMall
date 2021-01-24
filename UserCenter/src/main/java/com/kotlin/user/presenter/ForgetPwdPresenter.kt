@@ -4,7 +4,6 @@ import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.base.rx.BaseSubscriber
 import com.kotlin.user.presenter.view.ForgetPwdView
-import com.kotlin.user.presenter.view.RegisterView
 import com.kotlin.user.service.UserService
 import javax.inject.Inject
 

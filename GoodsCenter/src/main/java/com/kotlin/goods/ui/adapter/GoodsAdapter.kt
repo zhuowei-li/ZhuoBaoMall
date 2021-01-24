@@ -19,13 +19,13 @@ import kotlinx.android.synthetic.main.layout_goods_item.view.*
  */
 class GoodsAdapter(context: Context) : BaseRecyclerViewAdapter<Goods, GoodsAdapter.ViewHolder>(context) {
 
-   override fun onCreateViewHolder(parent: ViewGroup,
-                           viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup,
+                                    viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext)
                 .inflate(R.layout.layout_goods_item,
                         parent,
                         false)
-       return ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

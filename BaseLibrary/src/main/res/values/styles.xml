@@ -34,6 +34,7 @@
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan
         </item>
     </style>
+
     <style name="LightProgressDialog" parent="@style/LightDialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>

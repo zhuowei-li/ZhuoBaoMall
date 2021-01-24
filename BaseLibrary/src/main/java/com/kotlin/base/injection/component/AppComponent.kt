@@ -12,5 +12,5 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(AppModule::class))
 interface AppComponent {
 
-    fun context():Context
+    fun context(): Context
 }

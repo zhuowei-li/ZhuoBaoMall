@@ -9,5 +9,5 @@ import com.kotlin.message.data.protocol.Message
 interface MessageView : BaseView {
 
     //获取消息列表回调
-    fun onGetMessageResult(result:MutableList<Message>?)
+    fun onGetMessageResult(result: MutableList<Message>?)
 }

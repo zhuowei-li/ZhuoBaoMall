@@ -12,10 +12,10 @@ import dagger.Component
     Activity级别Component
  */
 @ActivityScope
-@Component(dependencies = [AppComponent::class],modules = arrayOf(ActivityModule::class,LifecycleProviderModule::class))
+@Component(dependencies = [AppComponent::class], modules = arrayOf(ActivityModule::class, LifecycleProviderModule::class))
 interface ActivityComponent {
 
-    fun activity():Activity
+    fun activity(): Activity
     fun context(): Context
     fun lifecycleProvider(): LifecycleProvider<*>
 }

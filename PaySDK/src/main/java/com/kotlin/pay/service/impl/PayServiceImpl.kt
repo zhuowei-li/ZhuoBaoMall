@@ -10,7 +10,7 @@ import javax.inject.Inject
 /*
     支付 业务实现类
  */
-class PayServiceImpl @Inject constructor(): PayService{
+class PayServiceImpl @Inject constructor() : PayService {
 
     @Inject
     lateinit var repository: PayRepository
@@ -19,7 +19,7 @@ class PayServiceImpl @Inject constructor(): PayService{
         获取支付签名
      */
     override fun getPaySign(orderId: Int, totalPrice: Long): Observable<String> {
-        return repository.getPaySign(orderId,totalPrice).convert()
+        return repository.getPaySign(orderId, totalPrice).convert()
     }
 
     /*

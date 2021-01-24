@@ -31,6 +31,7 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
 
     //一级分类Adapter
     lateinit var topAdapter: TopCategoryAdapter
+
     //二级分类Adapter
     lateinit var secondAdapter: SecondCategoryAdapter
 
@@ -79,7 +80,7 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
         mSecondCategoryRv.adapter = secondAdapter
         secondAdapter.setOnItemClickListener(object : BaseRecyclerViewAdapter.OnItemClickListener<Category> {
             override fun onItemClick(item: Category, position: Int) {
-                startActivity<GoodsActivity>(GoodsConstant.KEY_CATEGORY_ID  to item.id)
+                startActivity<GoodsActivity>(GoodsConstant.KEY_CATEGORY_ID to item.id)
             }
         })
 

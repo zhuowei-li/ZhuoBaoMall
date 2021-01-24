@@ -1,17 +1,12 @@
 package com.kotlin.order.data.repository
 
 
-import javax.inject.Inject
-import rx.Observable
-import com.kotlin.order.data.protocol.SubmitOrderReq
-import com.kotlin.order.data.api.OrderApi
 import com.kotlin.base.data.net.RetrofitFactory
-import com.kotlin.order.data.protocol.Order
 import com.kotlin.base.data.protocol.BaseResp
-import com.kotlin.order.data.protocol.GetOrderListReq
-import com.kotlin.order.data.protocol.GetOrderByIdReq
-import com.kotlin.order.data.protocol.ConfirmOrderReq
-import com.kotlin.order.data.protocol.CancelOrderReq
+import com.kotlin.order.data.api.OrderApi
+import com.kotlin.order.data.protocol.*
+import rx.Observable
+import javax.inject.Inject
 
 /*
    订单数据层

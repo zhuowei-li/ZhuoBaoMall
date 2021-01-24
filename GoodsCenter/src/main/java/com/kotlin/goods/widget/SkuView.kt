@@ -22,7 +22,7 @@ class SkuView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
     private lateinit var mGoodsSku: GoodsSku
 
     init {
-         View.inflate(context,R.layout.layout_sku_view, this)
+        View.inflate(context, R.layout.layout_sku_view, this)
     }
 
     /*
@@ -33,10 +33,10 @@ class SkuView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
         mSkuTitleTv.text = goodsSku.skuTitle
 
         //FlowLayout设置数据
-        mSkuContentView.adapter = object :TagAdapter<String>(goodsSku.skuContent){
+        mSkuContentView.adapter = object : TagAdapter<String>(goodsSku.skuContent) {
             override fun getView(parent: FlowLayout?, position: Int, t: String?): View {
                 val view = LayoutInflater.from(context)
-                        .inflate(R.layout.layout_sku_item,parent,false) as TextView
+                        .inflate(R.layout.layout_sku_item, parent, false) as TextView
                 view.text = t
                 return view
             }

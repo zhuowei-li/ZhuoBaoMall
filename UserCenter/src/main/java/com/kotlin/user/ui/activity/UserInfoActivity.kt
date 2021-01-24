@@ -29,16 +29,16 @@ import org.json.JSONObject
 class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoView {
 
 
-    private val mUploadManager:UploadManager by lazy { UploadManager() }
+    private val mUploadManager: UploadManager by lazy { UploadManager() }
 
-    private var mLocalFileUrl:String? = null
-    private var mRemoteFileUrl:String? = null
+    private var mLocalFileUrl: String? = null
+    private var mRemoteFileUrl: String? = null
 
-    private var mUserIcon:String? = null
-    private var mUserName:String? = null
-    private var mUserMobile:String? = null
-    private var mUserGender:String? = null
-    private var mUserSign:String? = null;
+    private var mUserIcon: String? = null
+    private var mUserName: String? = null
+    private var mUserMobile: String? = null
+    private var mUserGender: String? = null
+    private var mUserSign: String? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,10 +59,10 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
 
         mHeaderBar.getRightView().onClick {
             mPresenter.editUser(mRemoteFileUrl!!,
-                    mUserNameEt.text?.toString()?:"",
-                    if(mGenderMaleRb.isChecked) "0" else "1",
-                    mUserSignEt.text?.toString()?:""
-                    )
+                    mUserNameEt.text?.toString() ?: "",
+                    if (mGenderMaleRb.isChecked) "0" else "1",
+                    mUserSignEt.text?.toString() ?: ""
+            )
         }
     }
 
@@ -77,16 +77,15 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
         mUserSign = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_SIGN)
 
         mRemoteFileUrl = mUserIcon
-        if (mUserIcon != ""){
-            GlideUtils.loadUrlImage(this,mUserIcon!!,mUserIconIv)
+        if (mUserIcon != "") {
+            GlideUtils.loadUrlImage(this, mUserIcon!!, mUserIconIv)
         }
         mUserNameEt.setText(mUserName)
         mUserMobileTv.text = mUserMobile
 
         if (mUserGender == "0") {
             mGenderMaleRb.isChecked = true
-        }
-        else {
+        } else {
             mGenderFemaleRb.isChecked = true
         }
 
@@ -116,15 +115,15 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>(), UserInfoVie
         获取上传凭证回调
      */
     override fun onGetUploadTokenResult(result: String) {
-        mUploadManager.put(mLocalFileUrl,null,result,object:UpCompletionHandler{
+        mUploadManager.put(mLocalFileUrl, null, result, object : UpCompletionHandler {
             override fun complete(key: String?, info: ResponseInfo?, response: JSONObject?) {
                 mRemoteFileUrl = BaseConstant.IMAGE_SERVER_ADDRESS + response?.get("hash")
 
                 Log.d("test", mRemoteFileUrl)
-                GlideUtils.loadUrlImage(this@UserInfoActivity, mRemoteFileUrl!!,mUserIconIv)
+                GlideUtils.loadUrlImage(this@UserInfoActivity, mRemoteFileUrl!!, mUserIconIv)
             }
 
-        },null)
+        }, null)
     }
 
     /*

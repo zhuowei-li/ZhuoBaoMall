@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.kotlin.base.ext.loadUrl
 import com.kotlin.base.ui.adapter.BaseRecyclerViewAdapter
+import com.kotlin.base.utils.YuanFenConverter
 import com.kotlin.order.R
 import com.kotlin.order.data.protocol.OrderGoods
-import com.kotlin.base.utils.YuanFenConverter
 import kotlinx.android.synthetic.main.layout_order_goods_item.view.*
 
 /*
@@ -21,7 +21,7 @@ class OrderGoodsAdapter(context: Context) : BaseRecyclerViewAdapter<OrderGoods, 
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext)
-                .inflate(R.layout.layout_order_goods_item,parent,false)
+                .inflate(R.layout.layout_order_goods_item, parent, false)
         return ViewHolder(view)
     }
 

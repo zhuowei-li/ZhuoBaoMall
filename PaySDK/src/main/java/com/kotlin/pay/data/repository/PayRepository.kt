@@ -1,14 +1,13 @@
 package com.kotlin.pay.data.repository
 
 
-import javax.inject.Inject
-
-import rx.Observable
 import com.kotlin.base.data.net.RetrofitFactory
 import com.kotlin.base.data.protocol.BaseResp
+import com.kotlin.pay.data.api.PayApi
 import com.kotlin.pay.data.protocol.GetPaySignReq
 import com.kotlin.pay.data.protocol.PayOrderReq
-import com.kotlin.pay.data.api.PayApi
+import rx.Observable
+import javax.inject.Inject
 
 
 /*

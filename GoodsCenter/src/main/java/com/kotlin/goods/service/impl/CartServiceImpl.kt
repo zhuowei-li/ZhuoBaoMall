@@ -11,7 +11,7 @@ import javax.inject.Inject
 /*
     购物车 业务层实现类
  */
-class CartServiceImpl @Inject constructor(): CartService {
+class CartServiceImpl @Inject constructor() : CartService {
     @Inject
     lateinit var repository: CartRepository
 
@@ -19,8 +19,8 @@ class CartServiceImpl @Inject constructor(): CartService {
         加入购物车
      */
     override fun addCart(goodsId: Int, goodsDesc: String, goodsIcon: String, goodsPrice: Long, goodsCount: Int, goodsSku: String): Observable<Int> {
-        return repository.addCart(goodsId,goodsDesc,goodsIcon,goodsPrice,
-                goodsCount,goodsSku).convert()
+        return repository.addCart(goodsId, goodsDesc, goodsIcon, goodsPrice,
+                goodsCount, goodsSku).convert()
     }
 
     /*
@@ -41,6 +41,6 @@ class CartServiceImpl @Inject constructor(): CartService {
         提交购物车商品
      */
     override fun submitCart(list: MutableList<CartGoods>, totalPrice: Long): Observable<Int> {
-        return repository.submitCart(list,totalPrice).convert()
+        return repository.submitCart(list, totalPrice).convert()
     }
 }

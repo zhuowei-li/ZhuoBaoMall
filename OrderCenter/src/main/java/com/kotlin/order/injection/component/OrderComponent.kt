@@ -12,10 +12,10 @@ import dagger.Component
     订单Component
  */
 @PerComponentScope
-@Component(dependencies = arrayOf(ActivityComponent::class),modules = arrayOf(OrderModule::class))
+@Component(dependencies = arrayOf(ActivityComponent::class), modules = arrayOf(OrderModule::class))
 interface OrderComponent {
-    fun inject(activity:OrderConfirmActivity)
-    fun inject(fragment:OrderFragment)
+    fun inject(activity: OrderConfirmActivity)
+    fun inject(fragment: OrderFragment)
 
-    fun inject(activity:OrderDetailActivity)
+    fun inject(activity: OrderDetailActivity)
 }

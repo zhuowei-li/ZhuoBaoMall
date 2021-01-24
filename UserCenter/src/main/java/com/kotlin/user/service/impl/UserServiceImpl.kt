@@ -11,9 +11,9 @@ import javax.inject.Inject
 /*
     用户模块业务实现类
  */
-class UserServiceImpl @Inject constructor():UserService {
+class UserServiceImpl @Inject constructor() : UserService {
     @Inject
-    lateinit var repository:UserRepository
+    lateinit var repository: UserRepository
 
     /*
         注册
@@ -47,7 +47,7 @@ class UserServiceImpl @Inject constructor():UserService {
         修改用户资料
      */
     override fun editUser(userIcon: String, userName: String, userGender: String, userSign: String): Observable<UserInfo> {
-        return repository.editUser(userIcon,userName,userGender,userSign).convert()
+        return repository.editUser(userIcon, userName, userGender, userSign).convert()
     }
 
 }

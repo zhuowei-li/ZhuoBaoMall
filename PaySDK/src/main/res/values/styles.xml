@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="OrderPayTypeStyle">
         <item name="android:textSize">@dimen/text_big_size</item>
         <item name="android:textColor">@color/text_light_dark</item>

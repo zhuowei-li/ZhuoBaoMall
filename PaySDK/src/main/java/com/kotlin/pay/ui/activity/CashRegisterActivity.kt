@@ -2,13 +2,11 @@ package com.kotlin.pay.ui.activity
 
 import android.os.Bundle
 import android.view.View
-import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.alipay.sdk.app.EnvUtils
 import com.alipay.sdk.app.PayTask
 import com.kotlin.base.ext.onClick
-import com.kotlin.base.ui.activity.BaseActivity
 import com.kotlin.base.ui.activity.BaseMvpActivity
 import com.kotlin.base.utils.YuanFenConverter
 import com.kotlin.pay.R
@@ -27,7 +25,7 @@ import org.jetbrains.anko.uiThread
     收银台界面
  */
 @Route(path = RouterPath.PaySDK.PATH_PAY)
-class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickListener {
+class CashRegisterActivity : BaseMvpActivity<PayPresenter>(), PayView, View.OnClickListener {
     /*
         Dagger注册
      */
@@ -37,9 +35,10 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
     }
 
     //订单号
-    var mOrderId:Int = 0
+    var mOrderId: Int = 0
+
     //订单总价格
-    var mTotalPrice:Long = 0
+    var mTotalPrice: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,8 +56,8 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
         初始化数据
      */
     private fun initData() {
-        mOrderId = intent.getIntExtra(ProviderConstant.KEY_ORDER_ID,-1)
-        mTotalPrice = intent.getLongExtra(ProviderConstant.KEY_ORDER_PRICE,-1)
+        mOrderId = intent.getIntExtra(ProviderConstant.KEY_ORDER_ID, -1)
+        mTotalPrice = intent.getLongExtra(ProviderConstant.KEY_ORDER_PRICE, -1)
 
         mTotalPriceTv.text = YuanFenConverter.changeF2YWithUnit(mTotalPrice)
     }
@@ -79,11 +78,11 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
      */
     override fun onGetSignResult(result: String) {
         doAsync {
-            val resultMap:Map<String,String> = PayTask(this@CashRegisterActivity).payV2(result,true)
+            val resultMap: Map<String, String> = PayTask(this@CashRegisterActivity).payV2(result, true)
             uiThread {
-                if (resultMap["resultStatus"].equals("9000")){
-                   mPresenter.payOrder(mOrderId)
-                }else{
+                if (resultMap["resultStatus"].equals("9000")) {
+                    mPresenter.payOrder(mOrderId)
+                } else {
                     toast("支付失败${resultMap["memo"]}")
                 }
             }
@@ -103,12 +102,18 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
         点击事件
      */
     override fun onClick(v: View) {
-        when(v.id){
-            R.id.mAlipayTypeTv -> {updatePayType(true,false,false)}
-            R.id.mWeixinTypeTv -> {updatePayType(false,true,false)}
-            R.id.mBankCardTypeTv -> {updatePayType(false,false,true)}
+        when (v.id) {
+            R.id.mAlipayTypeTv -> {
+                updatePayType(true, false, false)
+            }
+            R.id.mWeixinTypeTv -> {
+                updatePayType(false, true, false)
+            }
+            R.id.mBankCardTypeTv -> {
+                updatePayType(false, false, true)
+            }
             R.id.mPayBtn -> {
-                mPresenter.getPaySign(mOrderId,mTotalPrice)
+                mPresenter.getPaySign(mOrderId, mTotalPrice)
             }
         }
     }
@@ -116,7 +121,7 @@ class CashRegisterActivity:BaseMvpActivity<PayPresenter>(),PayView,View.OnClickL
     /*
         选择支付类型，UI变化
      */
-    private fun updatePayType(isAliPay:Boolean,isWeixinPay:Boolean,isBankCardPay:Boolean){
+    private fun updatePayType(isAliPay: Boolean, isWeixinPay: Boolean, isBankCardPay: Boolean) {
         mAlipayTypeTv.isSelected = isAliPay
         mWeixinTypeTv.isSelected = isWeixinPay
         mBankCardTypeTv.isSelected = isBankCardPay

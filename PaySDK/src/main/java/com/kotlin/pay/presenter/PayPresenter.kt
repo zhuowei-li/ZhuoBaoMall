@@ -22,7 +22,7 @@ class PayPresenter @Inject constructor() : BasePresenter<PayView>() {
             return
         }
         mView.showLoading()
-        service.getPaySign(orderId,totalPrice).excute(object : BaseSubscriber<String>(mView) {
+        service.getPaySign(orderId, totalPrice).excute(object : BaseSubscriber<String>(mView) {
             override fun onNext(t: String) {
                 mView.onGetSignResult(t)
             }
@@ -45,7 +45,6 @@ class PayPresenter @Inject constructor() : BasePresenter<PayView>() {
         }, lifecycleProvider)
 
     }
-
 
 
 }

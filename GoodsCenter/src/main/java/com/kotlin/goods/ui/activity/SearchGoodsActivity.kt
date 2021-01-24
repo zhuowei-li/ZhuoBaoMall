@@ -3,14 +3,12 @@ package com.kotlin.goods.ui.activity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import android.widget.*
 import com.kotlin.base.ext.onClick
 import com.kotlin.base.ext.setVisible
 import com.kotlin.base.ui.activity.BaseActivity
 import com.kotlin.base.ui.adapter.BaseRecyclerViewAdapter
 import com.kotlin.base.utils.AppPrefsUtils
 import com.kotlin.goods.R
-
 import com.kotlin.goods.common.GoodsConstant
 import com.kotlin.goods.ui.adapter.SearchHistoryAdapter
 import kotlinx.android.synthetic.main.activity_search_goods.*

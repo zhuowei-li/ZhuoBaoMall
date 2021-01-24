@@ -3,12 +3,12 @@ package com.kotlin.goods.widget
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup.LayoutParams
-import android.widget.*
+import android.widget.PopupWindow
+import android.widget.RelativeLayout
 import com.eightbitlab.rxbus.Bus
 import com.kotlin.base.ext.loadUrl
 import com.kotlin.base.ext.onClick
@@ -74,7 +74,7 @@ class GoodsSkuPopView(context: Activity) : PopupWindow(context), View.OnClickLis
 
         mRootView.mSkuCountBtn.setCurrentNumber(1)
         mRootView.mSkuCountBtn.getEditText().addTextChangedListener(
-                object :DefaultTextWatcher(){
+                object : DefaultTextWatcher() {
                     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                         Bus.send(SkuChangedEvent())
                     }
