@@ -1,0 +1,8 @@
+include ':App',
+':BaseLibrary',
+':Provider',
+':UserCenter',
+':MessageCenter',
+':GoodsCenter',
+':OrderCenter',
+':PaySDK'
