@@ -1,9 +1,9 @@
 package com.kotlin.message.data.api
 
-import rx.Observable
 import com.kotlin.base.data.protocol.BaseResp
 import com.kotlin.message.data.protocol.Message
 import retrofit2.http.POST
+import rx.Observable
 
 /*
     消息 接口

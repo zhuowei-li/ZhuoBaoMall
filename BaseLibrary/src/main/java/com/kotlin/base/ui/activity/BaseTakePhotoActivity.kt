@@ -30,7 +30,7 @@ import javax.inject.Inject
  */
 abstract class BaseTakePhotoActivity<T : BasePresenter<*>> : BaseActivity(), BaseView, TakePhoto.TakeResultListener {
 
-    private lateinit var mTakePhoto:TakePhoto
+    private lateinit var mTakePhoto: TakePhoto
 
     private lateinit var mTempFile: File
 
@@ -46,7 +46,7 @@ abstract class BaseTakePhotoActivity<T : BasePresenter<*>> : BaseActivity(), Bas
         initActivityInjection()
         injectComponent()
 
-        mTakePhoto = TakePhotoImpl(this,this)
+        mTakePhoto = TakePhotoImpl(this, this)
         mTakePhoto.onCreate(savedInstanceState)
 
         mLoadingDialog = ProgressLoading.create(this)
@@ -86,7 +86,7 @@ abstract class BaseTakePhotoActivity<T : BasePresenter<*>> : BaseActivity(), Bas
     /*
         错误信息提示，默认实现
      */
-    override fun onError(text:String) {
+    override fun onError(text: String) {
         toast(text)
     }
 
@@ -97,7 +97,7 @@ abstract class BaseTakePhotoActivity<T : BasePresenter<*>> : BaseActivity(), Bas
     protected fun showAlertView() {
         AlertView("选择图片", "", "取消", null, arrayOf("拍照", "相册"), this,
                 AlertView.Style.ActionSheet, OnItemClickListener { o, position ->
-            mTakePhoto.onEnableCompress(CompressConfig.ofDefaultConfig(),false)
+            mTakePhoto.onEnableCompress(CompressConfig.ofDefaultConfig(), false)
             when (position) {
                 0 -> {
                     createTempFile()
@@ -138,19 +138,19 @@ abstract class BaseTakePhotoActivity<T : BasePresenter<*>> : BaseActivity(), Bas
      */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        mTakePhoto.onActivityResult(requestCode,resultCode,data)
+        mTakePhoto.onActivityResult(requestCode, resultCode, data)
     }
 
     /*
         新建临时文件
      */
-    fun createTempFile(){
+    fun createTempFile() {
         val tempFileName = "${DateUtils.curTime}.png"
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())){
-            this.mTempFile = File(Environment.getExternalStorageDirectory(),tempFileName)
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            this.mTempFile = File(Environment.getExternalStorageDirectory(), tempFileName)
             return
         }
 
-        this.mTempFile = File(filesDir,tempFileName)
+        this.mTempFile = File(filesDir, tempFileName)
     }
 }

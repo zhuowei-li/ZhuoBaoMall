@@ -9,13 +9,13 @@ import javax.inject.Inject
 /*
     上传业务实现类
  */
-class UploadServiceImpl @Inject constructor(): UploadService {
+class UploadServiceImpl @Inject constructor() : UploadService {
 
     @Inject
     lateinit var repository: UploadRepository
 
     override fun getUploadToken(): Observable<String> {
-       return repository.getUploadToken().convert()
+        return repository.getUploadToken().convert()
     }
 
 }

@@ -1,13 +1,7 @@
 package com.kotlin.base.widgets
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.Path
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffXfermode
-import android.graphics.RectF
+import android.graphics.*
 import android.util.AttributeSet
 import android.widget.ImageView
 import com.kotlin.base.R
@@ -17,10 +11,11 @@ import org.jetbrains.anko.dimen
     圆角图标
     左上，右上为圆角
  */
-class RoundRectImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr:Int = 0): ImageView(context,attrs,defStyleAttr) {
+class RoundRectImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : ImageView(context, attrs, defStyleAttr) {
     val radius = dimen(R.dimen.common_radius).toFloat()
+
     //设置圆角为左上和右上
-    private val radiusArray:FloatArray = floatArrayOf(radius,radius,radius,radius,0.0f,0.0f,0.0f,0.0f)
+    private val radiusArray: FloatArray = floatArrayOf(radius, radius, radius, radius, 0.0f, 0.0f, 0.0f, 0.0f)
 
 
     /*

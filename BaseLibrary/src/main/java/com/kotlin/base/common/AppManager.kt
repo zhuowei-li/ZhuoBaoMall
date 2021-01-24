@@ -8,25 +8,25 @@ import java.util.*
 /*
     Activity管理器
  */
-class AppManager private constructor(){
+class AppManager private constructor() {
 
-    private val activityStack:Stack<Activity> = Stack()
+    private val activityStack: Stack<Activity> = Stack()
 
     companion object {
-        val instance:AppManager by lazy { AppManager() }
+        val instance: AppManager by lazy { AppManager() }
     }
 
     /*
         Activity入栈
      */
-    fun addActivity(activity: Activity){
+    fun addActivity(activity: Activity) {
         activityStack.add(activity)
     }
 
     /*
         Activity出栈
      */
-    fun finishActivity(activity: Activity){
+    fun finishActivity(activity: Activity) {
         activity.finish()
         activityStack.remove(activity)
     }
@@ -34,15 +34,15 @@ class AppManager private constructor(){
     /*
         获取当前栈顶
      */
-    fun currentActivity():Activity{
+    fun currentActivity(): Activity {
         return activityStack.lastElement()
     }
 
     /*
         清理栈
      */
-    fun finishAllActivity(){
-        for (activity in activityStack){
+    fun finishAllActivity() {
+        for (activity in activityStack) {
             activity.finish()
         }
         activityStack.clear()
@@ -51,7 +51,7 @@ class AppManager private constructor(){
     /*
         退出应用程序
      */
-    fun exitApp(context:Context){
+    fun exitApp(context: Context) {
         finishAllActivity()
         val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         activityManager.killBackgroundProcesses(context.packageName)

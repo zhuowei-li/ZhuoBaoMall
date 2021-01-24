@@ -13,7 +13,7 @@ class MessageModule {
 
     @Provides
     fun provideMessageService(messageService: MessageServiceImpl): MessageService {
-        return  messageService
+        return messageService
     }
 
 }

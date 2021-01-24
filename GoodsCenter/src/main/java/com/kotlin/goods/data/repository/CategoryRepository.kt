@@ -11,7 +11,7 @@ import javax.inject.Inject
 /*
     商品分类 数据层
  */
-class CategoryRepository @Inject constructor(){
+class CategoryRepository @Inject constructor() {
     /*
         获取商品分类
      */

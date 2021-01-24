@@ -2,9 +2,7 @@ package com.kotlin.base.utils
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Date
-import java.util.TimeZone
+import java.util.*
 
 /**
  * 日期工具类 默认使用 "yyyy-MM-dd HH:mm:ss" 格式化日期
@@ -15,6 +13,7 @@ object DateUtils {
      * 英文简写（默认）如：12-01
      */
     var FORMAT_MONTH_DAY = "MM-dd"
+
     /**
      * 英文简写（默认）如：2010-12-01
      */
@@ -28,30 +27,37 @@ object DateUtils {
     var datePattern = "yyyy-MM-dd HH:mm:ss"
 
     var FORMAT_LONG_NEW = "yyyy-MM-dd HH:mm"
+
     /**
      * 精确到毫秒的完整时间 如：yyyy-MM-dd HH:mm:ss.S
      */
     var FORMAT_FULL = "yyyy-MM-dd HH:mm:ss.S"
+
     /**
      * 中文简写 如：2010年12月01日
      */
     var FORMAT_SHORT_CN_MINI = "MM月dd日 HH:mm"
+
     /**
      * 中文简写 如：2010年12月01日
      */
     var FORMAT_SHORT_CN = "yyyy年MM月dd日"
+
     /**
      * 中文全称 如：2010年12月01日 23时15分06秒
      */
     var FORMAT_LONG_CN = "yyyy年MM月dd日  HH时mm分ss秒"
+
     /**
      * 精确到毫秒的完整中文时间
      */
     var FORMAT_FULL_CN = "yyyy年MM月dd日  HH时mm分ss秒SSS毫秒"
+
     /**
      * 精确到毫秒的完整中文时间
      */
     var FORMAT_SPEFULL_CN = "yyyy年MM月dd日  HH:mm"
+
     /**
      * 英文简写（默认）如：2010-12-01
      */
@@ -94,7 +100,8 @@ object DateUtils {
      * *
      * @return
      */
-    @JvmOverloads fun format(date: Date?, pattern: String = datePattern): String {
+    @JvmOverloads
+    fun format(date: Date?, pattern: String = datePattern): String {
         var returnValue = ""
         if (date != null) {
             val df = SimpleDateFormat(pattern)
@@ -115,7 +122,8 @@ object DateUtils {
      * *
      * @return
      */
-    @JvmOverloads fun parse(strDate: String, pattern: String = datePattern): Date? {
+    @JvmOverloads
+    fun parse(strDate: String, pattern: String = datePattern): Date? {
         val df = SimpleDateFormat(pattern)
         df.timeZone = defTimeZone
         try {

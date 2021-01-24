@@ -3,8 +3,8 @@ package com.kotlin.message.receiver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import cn.jpush.android.api.JPushInterface
 import android.util.Log
+import cn.jpush.android.api.JPushInterface
 import com.alibaba.android.arouter.launcher.ARouter
 import com.eightbitlab.rxbus.Bus
 import com.kotlin.provider.common.ProviderConstant
@@ -16,12 +16,12 @@ import org.json.JSONObject
 /*
     自定义Push 接收器
  */
-class MessageReceiver:BroadcastReceiver() {
+class MessageReceiver : BroadcastReceiver() {
     private val TAG = "MessageReceiver"
     override fun onReceive(context: Context, intent: Intent) {
 
         val bundle = intent.extras
-        Log.d(TAG, "onReceive - " + intent.action + ", extras: " +bundle)
+        Log.d(TAG, "onReceive - " + intent.action + ", extras: " + bundle)
 
         when {
             JPushInterface.ACTION_REGISTRATION_ID == intent.action -> Log.d(TAG, "JPush用户注册成功")
@@ -37,7 +37,7 @@ class MessageReceiver:BroadcastReceiver() {
                 val json = JSONObject(extra)
                 val orderId = json.getInt("orderId")
                 ARouter.getInstance().build(RouterPath.MessageCenter.PATH_MESSAGE_ORDER)
-                        .withInt(ProviderConstant.KEY_ORDER_ID,orderId)
+                        .withInt(ProviderConstant.KEY_ORDER_ID, orderId)
                         .navigation()
 
             }

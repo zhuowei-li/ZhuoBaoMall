@@ -10,5 +10,5 @@ interface ForgetPwdView : BaseView {
     /*
         忘记密码回调
      */
-    fun onForgetPwdResult(result:String)
+    fun onForgetPwdResult(result: String)
 }

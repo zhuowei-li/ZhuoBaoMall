@@ -4,7 +4,6 @@ import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.base.rx.BaseSubscriber
 import com.kotlin.order.data.protocol.Order
-import com.kotlin.order.presenter.view.OrderConfirmView
 import com.kotlin.order.presenter.view.OrderListView
 import com.kotlin.order.service.OrderService
 import javax.inject.Inject
@@ -27,7 +26,7 @@ class OrderListPresenter @Inject constructor() : BasePresenter<OrderListView>() 
         mView.showLoading()
         orderService.getOrderList(orderStatus).excute(object : BaseSubscriber<MutableList<Order>?>(mView) {
             override fun onNext(t: MutableList<Order>?) {
-                    mView.onGetOrderListResult(t)
+                mView.onGetOrderListResult(t)
             }
         }, lifecycleProvider)
 
@@ -64,7 +63,6 @@ class OrderListPresenter @Inject constructor() : BasePresenter<OrderListView>() 
         }, lifecycleProvider)
 
     }
-
 
 
 }

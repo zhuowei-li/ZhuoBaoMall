@@ -12,7 +12,7 @@ import dagger.Provides
 class OrderModule {
 
     @Provides
-    fun provideOrderservice(orderService: OrderServiceImpl): OrderService{
+    fun provideOrderservice(orderService: OrderServiceImpl): OrderService {
         return orderService
     }
 

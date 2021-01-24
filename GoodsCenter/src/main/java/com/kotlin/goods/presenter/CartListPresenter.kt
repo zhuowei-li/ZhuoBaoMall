@@ -57,7 +57,7 @@ class CartListPresenter @Inject constructor() : BasePresenter<CartListView>() {
             return
         }
         mView.showLoading()
-        cartService.submitCart(list,totalPrice).excute(object : BaseSubscriber<Int>(mView) {
+        cartService.submitCart(list, totalPrice).excute(object : BaseSubscriber<Int>(mView) {
             override fun onNext(t: Int) {
                 mView.onSubmitCartListResult(t)
             }

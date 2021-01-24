@@ -11,9 +11,9 @@ import com.kotlin.provider.router.RouterPath
     提供PushId的实现
  */
 @Route(path = RouterPath.MessageCenter.PATH_MESSAGE_PUSH)
-class PushProviderImpl:PushProvider {
+class PushProviderImpl : PushProvider {
 
-    private var mContext:Context? = null
+    private var mContext: Context? = null
     override fun getPushId(): String {
         return JPushInterface.getRegistrationID(mContext)
     }

@@ -16,6 +16,6 @@ data class Goods(
         val goodsCode: String,//商品编号
         val goodsDefaultSku: String,//默认SKU
         val goodsBanner: String,//商品banner图
-        val goodsSku:List<GoodsSku>,//商品SKU
-        val maxPage:Int//最大页码
-        )
+        val goodsSku: List<GoodsSku>,//商品SKU
+        val maxPage: Int//最大页码
+)

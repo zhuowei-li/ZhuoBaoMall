@@ -4,10 +4,12 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.TextView
 import android.widget.ViewFlipper
 import com.kotlin.message.R
-import android.widget.TextView
-import org.jetbrains.anko.*
+import org.jetbrains.anko.dimen
+import org.jetbrains.anko.find
+import org.jetbrains.anko.px2sp
 
 /*
     公告组件封装

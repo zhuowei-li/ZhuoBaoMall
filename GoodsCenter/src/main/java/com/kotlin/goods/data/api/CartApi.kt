@@ -1,7 +1,10 @@
 package com.kotlin.goods.data.api
 
 import com.kotlin.base.data.protocol.BaseResp
-import com.kotlin.goods.data.protocol.*
+import com.kotlin.goods.data.protocol.AddCartReq
+import com.kotlin.goods.data.protocol.CartGoods
+import com.kotlin.goods.data.protocol.DeleteCartReq
+import com.kotlin.goods.data.protocol.SubmitCartReq
 import retrofit2.http.Body
 import retrofit2.http.POST
 import rx.Observable

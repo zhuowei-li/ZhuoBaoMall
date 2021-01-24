@@ -1,8 +1,8 @@
 include ':App',
-':BaseLibrary',
-':Provider',
-':UserCenter',
-':MessageCenter',
-':GoodsCenter',
-':OrderCenter',
-':PaySDK'
+        ':BaseLibrary',
+        ':Provider',
+        ':UserCenter',
+        ':MessageCenter',
+        ':GoodsCenter',
+        ':OrderCenter',
+        ':PaySDK'

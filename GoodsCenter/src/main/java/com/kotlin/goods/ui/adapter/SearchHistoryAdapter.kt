@@ -14,13 +14,13 @@ import kotlinx.android.synthetic.main.layout_search_history_item.view.*
  */
 class SearchHistoryAdapter(context: Context) : BaseRecyclerViewAdapter<String, SearchHistoryAdapter.ViewHolder>(context) {
 
-   override fun onCreateViewHolder(parent: ViewGroup,
-                           viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup,
+                                    viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext)
                 .inflate(R.layout.layout_search_history_item,
                         parent,
                         false)
-       return ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

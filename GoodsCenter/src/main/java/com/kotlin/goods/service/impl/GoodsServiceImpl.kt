@@ -10,7 +10,7 @@ import javax.inject.Inject
 /*
     商品 业务层 实现类
  */
-class GoodsServiceImpl @Inject constructor(): GoodsService {
+class GoodsServiceImpl @Inject constructor() : GoodsService {
 
     @Inject
     lateinit var repository: GoodsRepository
@@ -19,14 +19,14 @@ class GoodsServiceImpl @Inject constructor(): GoodsService {
         获取商品列表
      */
     override fun getGoodsList(categoryId: Int, pageNo: Int): Observable<MutableList<Goods>?> {
-        return repository.getGoodsList(categoryId,pageNo).convert()
+        return repository.getGoodsList(categoryId, pageNo).convert()
     }
 
     /*
         根据关键字查询商品
      */
     override fun getGoodsListByKeyword(keyword: String, pageNo: Int): Observable<MutableList<Goods>?> {
-        return repository.getGoodsListByKeyword(keyword,pageNo).convert()
+        return repository.getGoodsListByKeyword(keyword, pageNo).convert()
     }
 
     /*

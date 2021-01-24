@@ -11,7 +11,7 @@ import javax.inject.Inject
 /*
     收货人信息 业务实现类
  */
-class ShipAddressServiceImpl @Inject constructor(): ShipAddressService {
+class ShipAddressServiceImpl @Inject constructor() : ShipAddressService {
 
     @Inject
     lateinit var repository: ShipAddressRepository
@@ -20,7 +20,7 @@ class ShipAddressServiceImpl @Inject constructor(): ShipAddressService {
         添加收货人信息
      */
     override fun addShipAddress(shipUserName: String, shipUserMobile: String, shipAddress: String): Observable<Boolean> {
-        return repository.addShipAddress(shipUserName,shipUserMobile,shipAddress).convertBoolean()
+        return repository.addShipAddress(shipUserName, shipUserMobile, shipAddress).convertBoolean()
 
     }
 
@@ -35,7 +35,7 @@ class ShipAddressServiceImpl @Inject constructor(): ShipAddressService {
         修改收货人信息
      */
     override fun editShipAddress(address: ShipAddress): Observable<Boolean> {
-        return  repository.editShipAddress(address).convertBoolean()
+        return repository.editShipAddress(address).convertBoolean()
     }
 
     /*

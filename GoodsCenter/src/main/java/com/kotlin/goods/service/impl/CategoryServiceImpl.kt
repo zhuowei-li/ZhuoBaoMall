@@ -10,7 +10,7 @@ import javax.inject.Inject
 /*
     商品分类 业务层 实现类
  */
-class CategoryServiceImpl @Inject constructor(): CategoryService{
+class CategoryServiceImpl @Inject constructor() : CategoryService {
     @Inject
     lateinit var repository: CategoryRepository
 

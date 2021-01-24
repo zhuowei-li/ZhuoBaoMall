@@ -10,7 +10,7 @@ import dagger.Component
     支付Component
  */
 @PerComponentScope
-@Component(dependencies = arrayOf(ActivityComponent::class),modules = arrayOf(PayModule::class))
+@Component(dependencies = arrayOf(ActivityComponent::class), modules = arrayOf(PayModule::class))
 interface PayComponent {
     fun inject(activity: CashRegisterActivity)
 }

@@ -25,9 +25,9 @@ class EditShipAddressPresenter @Inject constructor() : BasePresenter<EditShipAdd
             return
         }
         mView.showLoading()
-        shipAddressService.addShipAddress(shipUserName,shipUserMobile,shipAddress).excute(object : BaseSubscriber<Boolean>(mView) {
+        shipAddressService.addShipAddress(shipUserName, shipUserMobile, shipAddress).excute(object : BaseSubscriber<Boolean>(mView) {
             override fun onNext(t: Boolean) {
-                    mView.onAddShipAddressResult(t)
+                mView.onAddShipAddressResult(t)
             }
         }, lifecycleProvider)
 
@@ -36,7 +36,7 @@ class EditShipAddressPresenter @Inject constructor() : BasePresenter<EditShipAdd
     /*
         修改收货人信息
      */
-    fun editShipAddress(address:ShipAddress) {
+    fun editShipAddress(address: ShipAddress) {
         if (!checkNetWork()) {
             return
         }

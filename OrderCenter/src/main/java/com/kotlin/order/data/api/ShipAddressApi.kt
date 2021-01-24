@@ -1,13 +1,13 @@
 package com.kotlin.order.data.api
 
-import retrofit2.http.POST
-import rx.Observable
 import com.kotlin.base.data.protocol.BaseResp
 import com.kotlin.order.data.protocol.AddShipAddressReq
 import com.kotlin.order.data.protocol.DeleteShipAddressReq
 import com.kotlin.order.data.protocol.EditShipAddressReq
 import com.kotlin.order.data.protocol.ShipAddress
 import retrofit2.http.Body
+import retrofit2.http.POST
+import rx.Observable
 
 
 /*

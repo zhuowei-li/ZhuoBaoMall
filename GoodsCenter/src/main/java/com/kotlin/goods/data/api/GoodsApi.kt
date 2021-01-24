@@ -1,7 +1,10 @@
 package com.kotlin.goods.data.api
 
 import com.kotlin.base.data.protocol.BaseResp
-import com.kotlin.goods.data.protocol.*
+import com.kotlin.goods.data.protocol.GetGoodsDetailReq
+import com.kotlin.goods.data.protocol.GetGoodsListByKeywordReq
+import com.kotlin.goods.data.protocol.GetGoodsListReq
+import com.kotlin.goods.data.protocol.Goods
 import retrofit2.http.Body
 import retrofit2.http.POST
 import rx.Observable

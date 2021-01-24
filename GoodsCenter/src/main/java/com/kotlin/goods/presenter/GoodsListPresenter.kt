@@ -25,9 +25,9 @@ class GoodsListPresenter @Inject constructor() : BasePresenter<GoodsListView>() 
             return
         }
         mView.showLoading()
-        goodsService.getGoodsList(categoryId,pageNo).excute(object : BaseSubscriber<MutableList<Goods>?>(mView) {
+        goodsService.getGoodsList(categoryId, pageNo).excute(object : BaseSubscriber<MutableList<Goods>?>(mView) {
             override fun onNext(t: MutableList<Goods>?) {
-                    mView.onGetGoodsListResult(t)
+                mView.onGetGoodsListResult(t)
             }
         }, lifecycleProvider)
 
@@ -41,7 +41,7 @@ class GoodsListPresenter @Inject constructor() : BasePresenter<GoodsListView>() 
             return
         }
         mView.showLoading()
-        goodsService.getGoodsListByKeyword(keyword,pageNo).excute(object : BaseSubscriber<MutableList<Goods>?>(mView) {
+        goodsService.getGoodsListByKeyword(keyword, pageNo).excute(object : BaseSubscriber<MutableList<Goods>?>(mView) {
             override fun onNext(t: MutableList<Goods>?) {
                 mView.onGetGoodsListResult(t)
             }

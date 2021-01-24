@@ -1,9 +1,7 @@
 package com.kotlin.goods.injection.module
 
 import com.kotlin.goods.service.CartService
-import com.kotlin.goods.service.GoodsService
 import com.kotlin.goods.service.impl.CartServiceImpl
-import com.kotlin.goods.service.impl.GoodsServiceImpl
 import dagger.Module
 import dagger.Provides
 

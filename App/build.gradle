@@ -14,12 +14,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders = [
-            JPUSH_PKGNAME : applicationId
+                JPUSH_PKGNAME: applicationId
         ]
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
                 includeCompileClasspath false
             }
         }
@@ -52,7 +52,7 @@ dependencies {
     })
     testCompile 'junit:junit:4.13.1'
     compile project(':Provider')
-    if (isUserModule.toBoolean()){
+    if (isUserModule.toBoolean()) {
         compile project(':UserCenter')
     }
     compile project(':MessageCenter')

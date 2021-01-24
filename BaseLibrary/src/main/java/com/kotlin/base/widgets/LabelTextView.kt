@@ -44,7 +44,7 @@ class LabelTextView @JvmOverloads constructor(context: Context, attrs: Attribute
     /*
         设置内容文本
      */
-    fun setContentText(text:String){
+    fun setContentText(text: String) {
         mContentTv.text = text
     }
 }

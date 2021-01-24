@@ -2,11 +2,9 @@ package com.kotlin.user.ui.activity
 
 import android.os.Bundle
 import android.view.View
-import com.kotlin.base.common.AppManager
 import com.kotlin.base.ext.enable
 import com.kotlin.base.ext.onClick
 import com.kotlin.base.ui.activity.BaseMvpActivity
-import com.kotlin.base.widgets.VerifyButton
 import com.kotlin.user.R
 import com.kotlin.user.injection.component.DaggerUserComponent
 import com.kotlin.user.injection.module.UserModule
@@ -18,7 +16,7 @@ import org.jetbrains.anko.toast
 /*
     注册界面
  */
-class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView,View.OnClickListener {
+class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, View.OnClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +32,10 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView,View.
      */
     private fun initView() {
 
-        mRegisterBtn.enable(mMobileEt,{isBtnEnable()})
-        mRegisterBtn.enable(mVerifyCodeEt,{isBtnEnable()})
-        mRegisterBtn.enable(mPwdEt,{isBtnEnable()})
-        mRegisterBtn.enable(mPwdConfirmEt,{isBtnEnable()})
+        mRegisterBtn.enable(mMobileEt, { isBtnEnable() })
+        mRegisterBtn.enable(mVerifyCodeEt, { isBtnEnable() })
+        mRegisterBtn.enable(mPwdEt, { isBtnEnable() })
+        mRegisterBtn.enable(mPwdConfirmEt, { isBtnEnable() })
 
         mVerifyCodeBtn.onClick(this)
         mRegisterBtn.onClick(this)
@@ -63,14 +61,14 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView,View.
         点击事件
      */
     override fun onClick(view: View) {
-        when(view.id){
+        when (view.id) {
             R.id.mVerifyCodeBtn -> {
                 mVerifyCodeBtn.requestSendVerifyNumber()
                 toast("发送验证成功")
             }
 
             R.id.mRegisterBtn -> {
-                mPresenter.register(mMobileEt.text.toString(),mPwdEt.text.toString(),mVerifyCodeEt.text.toString())
+                mPresenter.register(mMobileEt.text.toString(), mPwdEt.text.toString(), mVerifyCodeEt.text.toString())
             }
         }
     }
@@ -78,10 +76,10 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView,View.
     /*
         判断按钮是否可用
      */
-    private fun isBtnEnable():Boolean{
+    private fun isBtnEnable(): Boolean {
         return mMobileEt.text.isNullOrEmpty().not() &&
                 mVerifyCodeEt.text.isNullOrEmpty().not() &&
-                mPwdEt.text.isNullOrEmpty().not()&&
+                mPwdEt.text.isNullOrEmpty().not() &&
                 mPwdConfirmEt.text.isNullOrEmpty().not()
     }
 }

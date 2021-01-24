@@ -2,11 +2,9 @@ package com.kotlin.goods.ui.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import com.eightbitlab.rxbus.Bus
 import com.kotlin.base.ext.loadUrl
 import com.kotlin.base.ext.onClick
@@ -25,13 +23,13 @@ import kotlinx.android.synthetic.main.layout_cart_goods_item.view.*
  */
 class CartGoodsAdapter(context: Context) : BaseRecyclerViewAdapter<CartGoods, CartGoodsAdapter.ViewHolder>(context) {
 
-   override fun onCreateViewHolder(parent: ViewGroup,
-                           viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup,
+                                    viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext)
                 .inflate(R.layout.layout_cart_goods_item,
                         parent,
                         false)
-       return ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -52,13 +50,13 @@ class CartGoodsAdapter(context: Context) : BaseRecyclerViewAdapter<CartGoods, Ca
         //选中按钮事件
         holder.itemView.mCheckedCb.onClick {
             model.isSelected = holder.itemView.mCheckedCb.isChecked
-            val isAllChecked = dataList.all {it.isSelected }
+            val isAllChecked = dataList.all { it.isSelected }
             Bus.send(CartAllCheckedEvent(isAllChecked))
             notifyDataSetChanged()
         }
 
         //商品数量变化监听
-        holder.itemView.mGoodsCountBtn.getEditText().addTextChangedListener(object:DefaultTextWatcher(){
+        holder.itemView.mGoodsCountBtn.getEditText().addTextChangedListener(object : DefaultTextWatcher() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 model.goodsCount = s.toString().toInt()
                 Bus.send(UpdateTotalPriceEvent())

@@ -22,9 +22,9 @@ abstract open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), Base
     @Inject
     lateinit var mPresenter: T
 
-    lateinit var mActivityComponent:ActivityComponent
+    lateinit var mActivityComponent: ActivityComponent
 
-    private lateinit var mLoadingDialog:ProgressLoading
+    private lateinit var mLoadingDialog: ProgressLoading
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +70,7 @@ abstract open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), Base
     /*
         错误信息提示，默认实现
      */
-    override fun onError(text:String) {
+    override fun onError(text: String) {
         toast(text)
     }
 }

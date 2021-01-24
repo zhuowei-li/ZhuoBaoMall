@@ -11,5 +11,5 @@ interface CategoryService {
     /*
         获取分类
      */
-    fun getCategory(parentId:Int): Observable<MutableList<Category>?>
+    fun getCategory(parentId: Int): Observable<MutableList<Category>?>
 }

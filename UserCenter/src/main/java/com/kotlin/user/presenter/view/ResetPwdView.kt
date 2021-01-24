@@ -7,5 +7,5 @@ import com.kotlin.base.presenter.view.BaseView
  */
 interface ResetPwdView : BaseView {
 
-    fun onResetPwdResult(result:String)
+    fun onResetPwdResult(result: String)
 }
