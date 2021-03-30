@@ -62,7 +62,7 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>(), CategoryView {
         mTopCategoryRv.layoutManager = LinearLayoutManager(context)
         topAdapter = TopCategoryAdapter(context)
         mTopCategoryRv.adapter = topAdapter
-        //单项点击事件
+        //单项点击事件，选中的item变为选中状态
         topAdapter.setOnItemClickListener(object : BaseRecyclerViewAdapter.OnItemClickListener<Category> {
             override fun onItemClick(item: Category, position: Int) {
                 for (category in topAdapter.dataList) {

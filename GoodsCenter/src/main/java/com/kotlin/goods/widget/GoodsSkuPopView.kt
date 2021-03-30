@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.layout_sku_pop.view.*
     商品SKU弹层
  */
 @SuppressLint("ClickableViewAccessibility")
-class GoodsSkuPopView(context: Activity) : PopupWindow(context), View.OnClickListener {
+class GoodsSkuPopView(context: Activity) : PopupWindow(context) {
     //根视图
     private val mRootView: View
     private val mContext: Context
@@ -69,9 +69,9 @@ class GoodsSkuPopView(context: Activity) : PopupWindow(context), View.OnClickLis
         初始化视图
      */
     private fun initView() {
-        mRootView.mCloseIv.onClick(this)
-        mRootView.mAddCartBtn.onClick(this)
-
+        mRootView.mCloseIv.onClick {
+            dismiss()
+        }
         mRootView.mSkuCountBtn.setCurrentNumber(1)
         mRootView.mSkuCountBtn.getEditText().addTextChangedListener(
                 object :DefaultTextWatcher(){
@@ -81,7 +81,6 @@ class GoodsSkuPopView(context: Activity) : PopupWindow(context), View.OnClickLis
                 }
 
         )
-
         mRootView.mAddCartBtn.onClick {
             Bus.send(AddCartEvent())
             dismiss()
@@ -137,14 +136,4 @@ class GoodsSkuPopView(context: Activity) : PopupWindow(context), View.OnClickLis
         获取商品数量
      */
     fun getSelectCount() = mRootView.mSkuCountBtn.number
-
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.mCloseIv -> dismiss()
-            R.id.mAddCartBtn -> {
-                dismiss()
-            }
-        }
-    }
-
 }
